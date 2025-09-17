@@ -20,3 +20,9 @@ provider "azurerm" {
   }
   resource_provider_registrations = "extended"
 }
+
+# using new TFE Outputs data source
+data "tfe_outputs" "upstream" {
+  organization = var.tfc_organization_name
+  workspace    = var.upstream_workspace  # injected by TF_VAR_upstream_workspace
+}
